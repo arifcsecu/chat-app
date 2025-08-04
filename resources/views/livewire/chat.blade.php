@@ -1,7 +1,7 @@
 <div class="relative mb-6 w-full">
     <flux:heading size="xl" level="1">{{ __('Chat App') }}</flux:heading>
     <flux:subheading size="lg" class="mb-6">{{ __('Manage your profile and account settings') }}</flux:subheading>
-    <flux:separator variant="subtle" /> 
+    <flux:separator variant="subtle" />
 
 
     <div class="flex h-[550px] text-sm border rounded-xl shadow overflow-hidden bg-white">
@@ -9,13 +9,15 @@
             <div class="p-4 font-bold text-gray-700 border-b">Users</div>
 
             <div class="divide-y">
+                @foreach ($users as $user)
                 <div class="p-3 cursor-pointer hover:bg-blue-100 transition">
-                    <div class="text-gray-800">Test User</div>
-                    <div class="text-xs text-gray-500">test@gmail.com</div>
+                    <div class="text-gray-800">{{$user->name}}</div>
+                    <div class="text-xs text-gray-500">{{ $user->email}}</div>
                 </div>
+                @endforeach
             </div>
-
         </div>
+
 
         <div class="w-3/4 flex flex-col">
 
@@ -31,7 +33,8 @@
             </div>
 
             <form class="p-4 border-t bg-white flex items-center gap-2">
-                <input type="text" class="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline" placeholder="Type your message...">
+                <input type="text" class="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline"
+                    placeholder="Type your message...">
                 <button class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-full">Send</button>
             </form>
         </div>
