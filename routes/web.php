@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Livewire\Chat;
+use App\Livewire\FileUpload;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,6 +21,7 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 
     Route::get("chat", Chat::class)->name("chat");
+    Route::get('file', FileUpload::class)->name('file');
 });
 
 require __DIR__.'/auth.php';

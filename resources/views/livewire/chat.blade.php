@@ -18,7 +18,6 @@
             </div>
         </div>
 
-
         <div class="w-3/4 flex flex-col">
 
             <div class="p-4 border-b bg-gray-50">
