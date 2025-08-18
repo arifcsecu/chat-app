@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
+
 class UserFactory extends Factory
 {
     /**
@@ -21,6 +22,7 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
     public function definition(): array
     {
         return [
@@ -35,10 +37,12 @@ class UserFactory extends Factory
     /**
      * Indicate that the model's email address should be unverified.
      */
+
     public function unverified(): static
     {
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
     }
+
 }
