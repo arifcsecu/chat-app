@@ -10,10 +10,17 @@ use Illuminate\Support\Facades\Auth;
 class Chat extends Component
 {
     public $users;
+    public $selectedUser;
 
     public function mount ()
     {
         $this->users = User::whereNot("id", Auth::id())->get();
+        $this->selectedUser = $this->users->first();
+    }
+
+    public function selectUser($id)
+    {
+        $this->selectedUser = User::find($id);
     }
     
     public function render()
