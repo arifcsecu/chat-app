@@ -16,7 +16,7 @@
                 </div>
                 @endforeach
             </div>
-        </div>
+        </div> 
 
         <div class="w-8/12 flex flex-col">
             <div class="p-4 border-b bg-gray-50">
