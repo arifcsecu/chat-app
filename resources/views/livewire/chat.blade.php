@@ -5,7 +5,7 @@
 
             <div class="divide-y">
                 @foreach ($users as $user)
-                <div class="p-3 cursor-pointer hover:bg-blue-100 transition flex justify-between items-center">
+                <div wire:click="selectUser({{ $user->id }})" class="p-3 cursor-pointer hover:bg-blue-100 transition flex justify-between items-center">
                     <div>
                         <div class="text-gray-800">{{$user->name}}</div>
                         <div class="text-xs text-gray-500">{{ $user->email}}</div>
@@ -19,9 +19,9 @@
         </div> 
 
         <div class="w-8/12 flex flex-col">
-            <div class="p-4 border-b bg-gray-50">
-                <div class="text-lg font-semibold text-gray-800">Test user</div>
-                <div class="text-xs text-gray-500">test@gmail.com</div>
+            <div  class="p-4 border-b bg-gray-50">
+                <div class="text-lg font-semibold text-gray-800">{{$selectedUser->name}}</div>
+                <div class="text-xs text-gray-500">{{$selectedUser->email}}</div>
             </div>
 
             <div class="flex-1 p-4 overflow-y-auto space-y-2 bg-gray-50">
@@ -63,6 +63,3 @@
 </div>
 
 
-<!-- this is something I do -->
-
-<!-- Ariful Islam -->
