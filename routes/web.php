@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Livewire\Chat;
@@ -22,6 +23,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get("chat", Chat::class)->name("chat");
     Route::get('file', FileUpload::class)->name('file');
+
+    Route::get('send-email', [EmailController::class, 'sendEmail']);
+    Route::get('contact', [EmailController::class, 'contactForm']);
+    Route::post('contact', [EmailController::class, 'sendContactEmail'])->name('contact');
 });
 
 require __DIR__.'/auth.php';
