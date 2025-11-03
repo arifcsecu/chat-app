@@ -15,7 +15,7 @@ class Chat extends Component
     public $selectedUser;
     public $newMessage;
     public $messages;
-    public $loginID;
+    public $loginId;
 
 
     public function mount()
@@ -23,7 +23,7 @@ class Chat extends Component
         $this->users = User::whereNot("id", Auth::id())->latest()->get();
         $this->selectedUser = $this->users->first();
         $this->loadMessages();
-        $this->loginID = Auth::id();
+        $this->loginId = Auth::id();
     }
 
     public function selectUser($id)
@@ -65,10 +65,12 @@ class Chat extends Component
         broadcast(new MessageSent($message));
     }
 
-    public function getListeners()
+    public function getListeners( )
     {
         return [
-            "echo-private:chat.{$this->loginID},MessageSent" => "newChatMessageNotification"
+
+            "echo-private:chat.{$this->loginId},MessageSent" => "newChatMessageNotifiction"
+
         ];
     }
 
@@ -76,7 +78,7 @@ class Chat extends Component
     {
         if ($message['sender_id'] == $this->selectedUser->id)
         {
-            $messageObj = ChatMessage::find ($message['id']);
+            $messageObj = ChatMessage::find($message['id']);
             $this->messages->push($messageObj);
         }
     }
